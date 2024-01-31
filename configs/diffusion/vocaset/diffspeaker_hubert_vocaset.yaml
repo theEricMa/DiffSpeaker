@@ -26,7 +26,7 @@ DATASET:
   JOINT_TYPE: 'vocaset' # join type
 
 TEST:
-  CHECKPOINTS: checkpoints/vocaset/diffusion_bias/diffspeaker_hubert_vocaset/checkpoints/epoch=7999.ckpt # Pretrained model path
+  CHECKPOINTS: checkpoints/vocaset/diffspeaker_hubert_vocaset.ckpt # Pretrained model path
   DATASETS: ['vocaset'] # training datasets
   BATCH_SIZE: 1 # training Batch size
   SPLIT: test # split type

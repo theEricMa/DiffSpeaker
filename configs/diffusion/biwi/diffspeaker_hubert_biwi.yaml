@@ -26,7 +26,7 @@ DATASET:
   JOINT_TYPE: 'biwi' # join type
 
 TEST:
-  CHECKPOINTS: experiments/biwi/diffusion_bias/diffspeaker_hubert_biwi/checkpoints/epoch=499.ckpt # Pretrained model path
+  CHECKPOINTS: checkpoints/biwi/diffspeaker_hubert_biwi.ckpt # Pretrained model path
   DATASETS: ['biwi'] # training datasets
   BATCH_SIZE: 1 # training Batch size
   SPLIT: test # split type
