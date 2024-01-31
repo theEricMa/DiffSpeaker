@@ -10,7 +10,7 @@ TRAIN:
   NUM_WORKERS: 1 # Number of workers
   BATCH_SIZE: 32 # Size of batches
   START_EPOCH: 0 # Start epochMMOTIONENCODER
-  END_EPOCH: 8000 # End epoch
+  END_EPOCH: 10000 # End epoch
   RESUME: '' # Resume training from this path
   OPTIM:
     TYPE: AdamW # Optimizer type
