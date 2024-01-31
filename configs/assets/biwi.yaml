@@ -1,0 +1,9 @@
+FOLDER: './experiments/biwi' # Experiment files saving path
+
+TEST:
+  FOLDER: './results' # Testing files saving path
+
+DATASET:
+  BIWI:
+    ROOT: ./datasets/biwi
+

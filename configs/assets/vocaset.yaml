@@ -1,0 +1,9 @@
+FOLDER: './experiments/vocaset' # Experiment files saving path
+
+TEST:
+  FOLDER: './results' # Testing files saving path
+
+DATASET:
+  VOCASET:
+    ROOT: ./datasets/vocaset
+

@@ -1,0 +1,93 @@
+NAME: diffspeaker_hubert_biwi # Experiment name
+DEBUG: False # Debug mode
+ACCELERATOR: 'gpu' # Devices optioncal: “cpu”, “gpu”, “tpu”, “ipu”, “hpu”, “mps, “auto”
+DEVICE: [0, 1, 2, 3, 4, 5, 6, 7] # Index of gpus eg. [0] or [0,1,2,3]
+
+# Training configuration
+TRAIN:
+  #---------------------------------
+  DATASETS: ['biwi'] # Training datasets
+  NUM_WORKERS: 1 # Number of workers
+  BATCH_SIZE: 8 # Size of batches
+  START_EPOCH: 0 # Start epochMMOTIONENCODER
+  END_EPOCH: 500 # End epoch
+  RESUME: '' # Resume training from this path
+  OPTIM:
+    TYPE: AdamW # Optimizer type
+    LR: 1e-4 # Learning rate
+
+# Evaluating Configuration
+EVAL:
+  DATASETS: ['biwi'] # Evaluating datasets
+  BATCH_SIZE: 8 # Evaluating Batch size
+
+# Datasets Configuration
+DATASET:
+  JOINT_TYPE: 'biwi' # join type
+
+TEST:
+  CHECKPOINTS: experiments/biwi/diffusion_bias/diffspeaker_hubert_biwi/checkpoints/epoch=499.ckpt # Pretrained model path
+  DATASETS: ['biwi'] # training datasets
+  BATCH_SIZE: 1 # training Batch size
+  SPLIT: test # split type
+  # REPLICATION_TIMES: 10 # replication times
+
+# Losses Configuration
+LOSS:
+  TYPE: voca # Losses type
+  VERTICE_ENC: 1 # Lambda for vertices reconstruction Losses
+  VERTICE_ENC_V: 1 # lambda for vertices velocity reconstruction loss
+  LIP_ENC: 0 # lambda for lip reconstruction loss
+  LIP_ENC_V: 0 # lambda for lip velocity reconstruction loss
+  DIST_SYNC_ON_STEP: True # Sync Losses on step when distributed trained
+
+audio_encoder:
+  train_audio_encoder: True
+  model_name_or_path: "facebook/hubert-base-ls960"
+
+# Model Configuration
+model:
+  target: 'diffusion/diffusion_bias_modules'
+  audio_encoded_dim: 768 # audio hidden dimension
+  model_type: diffusion_bias # model type
+  latent_dim: 1024 # latent dimension
+  id_dim: 6 # the dimension of the id vector
+  ff_size: 2048 # latent_dim * 2
+  num_layers: 1 # number of layers
+  num_heads: 4 # number of head layers
+  dropout: 0.1 # dropout rate
+  max_len: 600 # the attention mask maximum length
+  activation: gelu # activation type
+  normalize_before: True 
+  require_start_token: True # start_token is need for autogressive generation only
+  arch: 'default'
+  predict_epsilon: False # noise or motion, motion here
+  freq_shift: 0
+  flip_sin_to_cos: True
+  mem_attn_scale: 1.
+  tgt_attn_scale: 1.
+  audio_fps: 50
+  hidden_fps: 25 # 30
+  guidance_scale: 0 # not used
+  guidance_uncondp: 0. # not used
+  period: 25
+  no_cross: False
+
+# rewrite the template
+DEMO:
+  EAMPLE: null
+  ID: null
+  TEMPLATE: "datasets/biwi/templates.pkl"
+  PLY: "datasets/biwi/templates/BIWI.ply"
+  FPS: 25
+
+# Logger configuration
+LOGGER:
+  SACE_CHECKPOINT_EPOCH: 100
+  LOG_EVERY_STEPS: 10
+  VAL_EVERY_STEPS: 100 # 200
+  TENSORBOARD: True
+  WANDB:
+    PROJECT: null
+    OFFLINE: False
+    RESUME_ID: null
