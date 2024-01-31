@@ -124,11 +124,11 @@ def get_datasets(cfg, logger, phase='train'):
                 use_image=cfg.model.use_image,
             )
             datasets.append(dataset)
-        if dataset_name.lower() in ['voxcelebinstalmdb']:
-            from .voxceleb_insta_lmdb import VoxCelebInstaLMDBDataModule
+        if dataset_name.lower() in ['voxcelebinstaudiodiffusiondb']:
+            from .voxceleb_insta_lmdb import VoxCelebInstaudiodiffusionDBDataModule
             data_root = eval(f"cfg.DATASET.{dataset_name.upper()}.ROOT")
             collate_fn = voxcelebinsta_collate_fn
-            dataset = VoxCelebInstaLMDBDataModule(
+            dataset = VoxCelebInstaudiodiffusionDBDataModule(
                 cfg = cfg,
                 data_root = data_root,
                 batch_size=cfg.TRAIN.BATCH_SIZE,

@@ -10,7 +10,7 @@ TRAIN:
   NUM_WORKERS: 1 # Number of workers
   BATCH_SIZE: 16 # Size of batches
   START_EPOCH: 0 # Start epochMMOTIONENCODER
-  END_EPOCH: 40000 # End epoch
+  END_EPOCH: 700 # End epoch
   RESUME: '' # Resume training from this path
   OPTIM:
     TYPE: AdamW # Optimizer type
@@ -30,7 +30,7 @@ TEST:
   DATASETS: ['biwi'] # training datasets
   BATCH_SIZE: 1 # training Batch size
   SPLIT: test # split type
-  # REPLICATION_TIMES: 10 # replication times for each test sample
+  REPLICATION_TIMES: 10 # replication times for each test sample
 
 # Losses Configuration
 LOSS:

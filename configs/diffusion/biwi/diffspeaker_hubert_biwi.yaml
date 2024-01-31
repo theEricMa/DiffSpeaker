@@ -30,7 +30,7 @@ TEST:
   DATASETS: ['biwi'] # training datasets
   BATCH_SIZE: 1 # training Batch size
   SPLIT: test # split type
-  # REPLICATION_TIMES: 10 # replication times
+  REPLICATION_TIMES: 10 # replication times
 
 # Losses Configuration
 LOSS:

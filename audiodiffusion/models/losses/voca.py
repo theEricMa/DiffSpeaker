@@ -3,7 +3,7 @@
 # import torch.nn as nn
 # from torchmetrics import Metric
 
-# class ALMLosses(Metric):
+# class audiodiffusionLosses(Metric):
 #     """
 #     Audio latent motion losses
 #     """
