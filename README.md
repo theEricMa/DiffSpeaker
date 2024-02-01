@@ -1,5 +1,5 @@
-# FaceDiffusion
-
+# DiffSpeaker
+[Demo](https://www.youtube.com/watch?v=4-NBygHePk0) | Paper 
 
 
 To be developed
@@ -29,3 +29,7 @@ pip install -r requirements.txt
 ```
 mkdir experiments
 ```
+# Test
+parameter to be uploaded
+
+
