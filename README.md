@@ -14,14 +14,12 @@ Install MPI-IS.
 ```
 git clone https://github.com/MPI-IS/mesh.git
 ```
-The command is likely to be
+Follow the command in [MPI-IS](https://github.com/MPI-IS/mesh) to install the package. The command is likely to be
 ```
 BOOST_INCLUDE_DIRS=/usr/include/boost/ make all
 ```
 depending on if you have `/usr/include/boost/` directories.
-
-Follow the command in MPI-IS to install the package.
-
+Then install the rest of the dependencies.
 ```
 cd DiffSpeaker
 pip install -r requirements.txt
@@ -32,6 +30,5 @@ pip install -r requirements.txt
 mkdir experiments
 ```
 # Test
-parameter to be uploaded
-
+parameters are [available](https://drive.google.com/drive/folders/1PezaNpQHIjyE8UE5YW0jpDPV8jtepxSL?usp=sharing).
 
