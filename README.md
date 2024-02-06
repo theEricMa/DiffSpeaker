@@ -10,17 +10,13 @@ Feb.6: The model weight is released.
 conda create --name diffspeaker python=3.9
 conda activate diffspeaker
 ```
-Install MPI-IS.
+Install MPI-IS. Follow the command in [MPI-IS](https://github.com/MPI-IS/mesh) to install the package. Depending on if you have `/usr/include/boost/` directories, The command is likely to be
 ```
 git clone https://github.com/MPI-IS/mesh.git
 cd mesh
-```
-Follow the command in [MPI-IS](https://github.com/MPI-IS/mesh) to install the package. The command is likely to be
-```
 sudo apt-get install libboost-dev
 BOOST_INCLUDE_DIRS=/usr/include/boost/ make all
 ```
-depending on if you have `/usr/include/boost/` directories.
 Then install the rest of the dependencies.
 ```
 cd ..
