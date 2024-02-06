@@ -26,7 +26,7 @@ git clone https://github.com/theEricMa/DiffSpeaker.git
 cd DiffSpeaker
 pip install -r requirements.txt
 ```
-## Prediction
+### Prediction
 The model parameters are [available](https://drive.google.com/drive/folders/1PezaNpQHIjyE8UE5YW0jpDPV8jtepxSL?usp=sharing). They are listed in 
 
 ## Training
