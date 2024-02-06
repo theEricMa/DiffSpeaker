@@ -15,7 +15,9 @@ Install MPI-IS. Follow the command in [MPI-IS](https://github.com/MPI-IS/mesh) t
 git clone https://github.com/MPI-IS/mesh.git
 cd mesh
 sudo apt-get install libboost-dev
+python -m pip install pip==20.2.4
 BOOST_INCLUDE_DIRS=/usr/include/boost/ make all
+python -m pip install --upgrade pip
 ```
 Then install the rest of the dependencies.
 ```
