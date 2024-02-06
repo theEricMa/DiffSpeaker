@@ -1,4 +1,4 @@
-# DiffSpeaker: Speech-driven 3D Facial Animation with Diffusion Transformer
+# DiffSpeaker: Speech-Driven 3D Facial Animation with Diffusion Transformer
 ## Project Page | [Demo](https://www.youtube.com/watch?v=4-NBygHePk0) | Paper 
 
 ## Update
