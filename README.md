@@ -1,14 +1,16 @@
-# DiffSpeaker
-[Demo](https://www.youtube.com/watch?v=4-NBygHePk0) | Paper 
+# DiffSpeaker: Speech-driven 3D Facial Animation with Diffusion Transformer
+## Project Page | [Demo](https://www.youtube.com/watch?v=4-NBygHePk0) | Paper 
 
+## Update
+Feb.6: The model weight is released.
 
-To be developed
-
+## Get started
+### Environment Setup
 ```
-conda create --name facediffusion python=3.9
+conda create --name diffspeaker python=3.9
+conda activate diffspeaker
 ```
-
-Install MPI-IS
+Install MPI-IS.
 ```
 git clone https://github.com/MPI-IS/mesh.git
 ```
@@ -21,11 +23,11 @@ depending on if you have `/usr/include/boost/` directories.
 Follow the command in MPI-IS to install the package.
 
 ```
-cd FaceDiffusion
+cd DiffSpeaker
 pip install -r requirements.txt
 ```
 
-# Traing
+# Training
 ```
 mkdir experiments
 ```
