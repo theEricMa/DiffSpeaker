@@ -8,11 +8,11 @@ from pytorch_lightning import loggers as pl_loggers
 from pytorch_lightning.callbacks import ModelCheckpoint
 from pytorch_lightning.strategies.ddp import DDPStrategy
 
-from audiodiffusion.callback import ProgressLogger
-from audiodiffusion.config import parse_args
-from audiodiffusion.data.get_data import get_datasets
-from audiodiffusion.models.get_model import get_model
-from audiodiffusion.utils.logger import create_logger
+from alm.callback import ProgressLogger
+from alm.config import parse_args
+from alm.data.get_data import get_datasets
+from alm.models.get_model import get_model
+from alm.utils.logger import create_logger
 
 
 def main():

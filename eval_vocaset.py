@@ -10,17 +10,17 @@ from pathlib import Path
 from omegaconf import OmegaConf
 
 import numpy as np
-from audiodiffusion.config import parse_args
-from audiodiffusion.models.get_model import get_model
-from audiodiffusion.utils.logger import create_logger
-from audiodiffusion.utils.demo_utils import animate
+from alm.config import parse_args
+from alm.models.get_model import get_model
+from alm.utils.logger import create_logger
+from alm.utils.demo_utils import animate
 
 from rich import get_console
 from rich.table import Table
 
 import pytorch_lightning as pl
-from audiodiffusion.data.get_data import get_datasets
-from audiodiffusion.callback import ProgressLogger
+from alm.data.get_data import get_datasets
+from alm.callback import ProgressLogger
 
 from tqdm import tqdm
 

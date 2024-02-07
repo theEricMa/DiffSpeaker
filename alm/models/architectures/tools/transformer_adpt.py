@@ -2,7 +2,7 @@ import torch
 import torch.nn as nn
 import torch.nn.functional as F
 from torch import Tensor
-from audiodiffusion.models.architectures.tools.embeddings import (TimestepEmbedding,
+from alm.models.architectures.tools.embeddings import (TimestepEmbedding,
                                                        Timesteps)
 
 from .utils import PeriodicPositionalEncoding, init_bi_biased_mask

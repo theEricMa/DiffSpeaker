@@ -1,5 +1,5 @@
 from .base import BASEDataModule
-from audiodiffusion.data.voca import VOCASETDataset
+from alm.data.voca import VOCASETDataset
 from transformers import Wav2Vec2Processor
 from collections import defaultdict
 

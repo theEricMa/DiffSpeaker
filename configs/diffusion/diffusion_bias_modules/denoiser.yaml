@@ -1,0 +1,28 @@
+denoiser: # this is copied from configs/baselines/transformer_adpt_modules/transformer.yaml
+  target: alm.models.architectures.adpt_bias_denoiser.Adpt_Bias_Denoiser
+  params:
+    audio_encoded_dim: ${model.audio_encoded_dim}
+    ff_size: ${model.ff_size}
+    num_layers: ${model.num_layers}
+    num_heads: ${model.num_heads}
+    dropout: ${model.dropout}
+    normalize_before: ${model.normalize_before}
+    activation: ${model.activation}
+    return_intermediate_dec: False
+    arch: ${model.arch}
+    latent_dim: ${model.latent_dim}
+    nfeats: ${DATASET.NFEATS}
+    freq_shift: ${model.freq_shift}
+    flip_sin_to_cos: ${model.flip_sin_to_cos}
+    max_len: 3000 # the attention mask maximum length
+    id_dim: ${model.id_dim} # the number of identities
+    require_start_token: ${model.require_start_token} # start_token is need for autogressive generation only
+    mem_attn_scale: ${model.mem_attn_scale}
+    tgt_attn_scale: ${model.tgt_attn_scale}
+    audio_fps: ${model.audio_fps} # 
+    hidden_fps: ${model.hidden_fps}
+    # unconditional generation
+    guidance_scale: ${model.guidance_scale}
+    guidance_uncondp: ${model.guidance_uncondp}
+    period: ${model.period}
+    no_cross: ${model.no_cross}

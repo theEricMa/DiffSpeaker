@@ -4,10 +4,10 @@ import torch.nn.functional as F
 from torchmetrics import MetricCollection
 from transformers import Wav2Vec2Model
 
-from audiodiffusion.config import instantiate_from_config
-from audiodiffusion.models.modeltype.base import BaseModel
-from audiodiffusion.models.losses.voca import VOCALosses
-from audiodiffusion.utils.demo_utils import animate
+from alm.config import instantiate_from_config
+from alm.models.modeltype.base import BaseModel
+from alm.models.losses.voca import VOCALosses
+from alm.utils.demo_utils import animate
 from .base import BaseModel
 
 import inspect
@@ -145,8 +145,8 @@ class DIFFUSION_BIAS(BaseModel):
 
         if split in ["test"]:
             
-            from audiodiffusion.models.losses.utils import biwi_upper_face_variance, biwi_mouth_distance
-            from audiodiffusion.models.losses.utils import vocaset_upper_face_variance, vocaset_mouth_distance
+            from alm.models.losses.utils import biwi_upper_face_variance, biwi_mouth_distance
+            from alm.models.losses.utils import vocaset_upper_face_variance, vocaset_mouth_distance
 
             # we also need to collect the results for each id in the test
             bs = batch["vertice"].shape[0]
