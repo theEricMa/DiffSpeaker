@@ -31,6 +31,11 @@ pip install -r requirements.txt
 ### Model Weights
 You can access the model parameters by clicking [here](https://drive.google.com/drive/folders/1PezaNpQHIjyE8UE5YW0jpDPV8jtepxSL?usp=sharing). Place the `checkpoints` folder into the root directory of your project. This folder includes the models that have been trained on the `BIWI` and `vocaset` datasets, utilizing `wav2vec` and `hubert` as the backbones.
 ### Prediction
+For the BIWI dataset, employ the script below to perform inference on your chosen audio files. Specify the audio file using the `--example` argument.
+```
+sh scripts/demo/demo_biwi.sh
+```
+
 
 ## Training
 ### Data Preparation 
