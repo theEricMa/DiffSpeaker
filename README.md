@@ -26,8 +26,9 @@ git clone https://github.com/theEricMa/DiffSpeaker.git
 cd DiffSpeaker
 pip install -r requirements.txt
 ```
+### Model Weights
+You can access the model parameters by clicking [here](https://drive.google.com/drive/folders/1PezaNpQHIjyE8UE5YW0jpDPV8jtepxSL?usp=sharing). Place the `checkpoints` folder into the root directory of your project. This folder includes the models that have been trained on the `BIWI` and `vocaset` datasets, utilizing `wav2vec` and `hubert` as the backbones.
 ### Prediction
-The model parameters are [available](https://drive.google.com/drive/folders/1PezaNpQHIjyE8UE5YW0jpDPV8jtepxSL?usp=sharing). They are listed in 
 
 ## Training
 ### Data Preparation 
