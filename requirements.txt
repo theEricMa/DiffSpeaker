@@ -18,4 +18,4 @@ torchmetrics==0.7.0
 tqdm==4.64.1
 transformers==4.26.0
 trimesh==3.9.24
-diffusers=0.11 # very important 
+diffusers==0.11 # very important 
