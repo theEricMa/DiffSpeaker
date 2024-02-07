@@ -2,7 +2,7 @@
 ## Project Page | [Demo](https://www.youtube.com/watch?v=4-NBygHePk0) | Paper 
 
 ## Update
-- [07/02/2024]: The inference script for is released. 
+- [07/02/2024]: The inference script is released. 
 - [06/02/2024]: The model weight is released.
 
 ## Get started
@@ -43,7 +43,7 @@ sh scripts/demo/demo_vocaset.sh
 ## Training
 ### Data Preparation 
 
-# Training
+### Model Training
 ```
 mkdir experiments
 ```
