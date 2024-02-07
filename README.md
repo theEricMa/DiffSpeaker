@@ -2,7 +2,8 @@
 ## Project Page | [Demo](https://www.youtube.com/watch?v=4-NBygHePk0) | Paper 
 
 ## Update
-Feb.6: The model weight is released.
+06/02/2024: The inference script is released.
+06/02/2024: The model weight is released.
 
 ## Get started
 ### Environment Setup
@@ -31,12 +32,14 @@ pip install -r requirements.txt
 ### Model Weights
 You can access the model parameters by clicking [here](https://drive.google.com/drive/folders/1PezaNpQHIjyE8UE5YW0jpDPV8jtepxSL?usp=sharing). Place the `checkpoints` folder into the root directory of your project. This folder includes the models that have been trained on the `BIWI` and `vocaset` datasets, utilizing `wav2vec` and `hubert` as the backbones.
 ### Prediction
-For the BIWI dataset, employ the script below to perform inference on your chosen audio files. Specify the audio file using the `--example` argument.
+For the BIWI model, use the script below to perform inference on your chosen audio files. Specify the audio file using the `--example` argument.
 ```
 sh scripts/demo/demo_biwi.sh
 ```
-
-
+For the vocaset model, run the following script.
+```
+sh scripts/demo/demo_vocaset.sh
+```
 ## Training
 ### Data Preparation 
 
