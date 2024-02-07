@@ -32,6 +32,7 @@ blink_exp_betas = np.array(
         -0.9304382646186183, -0.30102930208709433, 0.9332135959962723, -0.52926196689098, 0.23509772959302958])
 
 
+
 def main():
     # parse options
     cfg = parse_args(phase="demo")
@@ -116,13 +117,8 @@ def main():
         test_name = os.path.basename(cfg.DEMO.EXAMPLE).split(".")[0]
         
         prediction = model.predict(data_input)
-        vertices = F.avg_pool1d(
-                prediction['vertice_pred'].permute(0, 2, 1),
-                kernel_size=3, 
-                stride=1, 
-                padding=1
-            ).permute(0, 2, 1).squeeze().cpu().numpy()  # smooth the prediction with a moving average filter
-        
+        # smooth the prediction in vocaset model, it does not significantly affect the metric, but it makes the animation smoother
+        vertices = prediction['vertice_pred'].squeeze().cpu().numpy()
 
         t2 = time.time()
         with open(output_file, 'a') as f:

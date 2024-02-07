@@ -476,6 +476,16 @@ class DIFFUSION_BIAS(BaseModel):
         }
         return rs_set
 
+    def smooth(self, vertices):
+        vertices_smooth = F.avg_pool1d(
+            vertices.permute(0, 2, 1),
+            kernel_size=3, 
+            stride=1, 
+            padding=1
+        ).permute(0, 2, 1)  # smooth the prediction with a moving average filter
+        vertices[:, 1:-1] = vertices_smooth[:, 1:-1]
+        return vertices
+
     def predict(self, batch, **kwargs):
         """
         Predict the result in the test time
@@ -515,7 +525,9 @@ class DIFFUSION_BIAS(BaseModel):
         batch['template'] = batch['template'][None, ...]
 
         # perform the diffusion forward process
-        vertice_output = self._diffusion_forward(batch, 0, 'val')['vertice_pred'] # vertice_output.shape = [batch_size, vert_len, vert_dim]                
+        vertice_output = self.smooth( # smooth the prediction does not significantly affect the metric but makes the animation smoother
+            self._diffusion_forward(batch, 0, 'val')['vertice_pred']
+         ) # vertice_output.shape = [batch_size, vert_len, vert_dim]                
         
         rs_set = {
             "vertice_pred": vertice_output,
