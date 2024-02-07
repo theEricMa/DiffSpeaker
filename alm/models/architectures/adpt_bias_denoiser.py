@@ -5,7 +5,7 @@ from torch import Tensor
 from alm.models.architectures.tools.embeddings import (TimestepEmbedding,
                                                        Timesteps)
 
-from .utils import PeriodicPositionalEncoding, init_bi_biased_mask_faceformer, init_mem_mask_faceformer
+from .tools.utils import PeriodicPositionalEncoding, init_bi_biased_mask_faceformer, init_mem_mask_faceformer
 
 from typing import Optional, Tuple, Union, Callable
 from .tools.transformer_adpt import TransformerDecoderLayer_w_Adapter, TransformerDecoder_w_Adapter
