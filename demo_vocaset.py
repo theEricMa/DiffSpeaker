@@ -1,6 +1,7 @@
 import os
 import pickle
 import torch
+import torch.nn.functional as F
 
 from alm.config import parse_args
 from alm.models.get_model import get_model
@@ -115,8 +116,9 @@ def main():
         test_name = os.path.basename(cfg.DEMO.EXAMPLE).split(".")[0]
         
         prediction = model.predict(data_input)
-        vertices = prediction['vertice_pred'].squeeze().cpu().numpy()
+        vertices = F.avg_pool1d(prediction['vertice_pred'], kernel_size=3, stride=1, padding=1).squeeze().cpu().numpy()  # smooth the prediction with a moving average filter
         
+
         t2 = time.time()
         with open(output_file, 'a') as f:
             f.write(test_name + " " + str(t2-t1) + "\n")
