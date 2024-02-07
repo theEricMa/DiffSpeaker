@@ -116,7 +116,12 @@ def main():
         test_name = os.path.basename(cfg.DEMO.EXAMPLE).split(".")[0]
         
         prediction = model.predict(data_input)
-        vertices = F.avg_pool1d(prediction['vertice_pred'], kernel_size=3, stride=1, padding=1).squeeze().cpu().numpy()  # smooth the prediction with a moving average filter
+        vertices = F.avg_pool1d(
+                prediction['vertice_pred'].permute(0, 2, 1),
+                kernel_size=3, 
+                stride=1, 
+                padding=1
+            ).permute(0, 2, 1).squeeze().cpu().numpy()  # smooth the prediction with a moving average filter
         
 
         t2 = time.time()
