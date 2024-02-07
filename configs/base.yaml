@@ -1,0 +1,65 @@
+# FOLDER: ./experiments
+SEED_VALUE: 1234
+DEBUG: True
+TRAIN:
+  SPLIT: 'train'
+  NUM_WORKERS: 1 #2 # Number of workers
+  BATCH_SIZE: 4 # Size of batches
+  START_EPOCH: 0 # Start epoch
+  END_EPOCH: 2000 # End epoch
+  RESUME: '' # Experiment path to be resumed training
+  PRETRAINED: '' # Pretrained model path
+
+  OPTIM:
+    OPTIM.TYPE: 'AdamW' # Optimizer type
+    OPTIM.LR: 1e-4 # Learning rate
+
+  ABLATION:
+    SKIP_CONNECT: False # skip connection for denoiser va
+    # use linear to expand mean and std rather expand token nums
+    MLP_DIST: False
+    IS_DIST: False # Mcross distribution kl
+
+EVAL:
+  SPLIT: 'gtest'
+  BATCH_SIZE: 1 # Evaluating Batch size
+  NUM_WORKERS: 1 #12 # Evaluating Batch size
+
+TEST:
+  TEST_DIR: ''
+  CHECKPOINTS: '' # Pretrained model path
+  NUM_WORKERS: 1 #12 # Evaluating Batch size
+  BATCH_SIZE: 1 # Evaluating Batch size
+  REPLICATION_TIMES: 1 # Number of times to replicate the test
+  SAVE_PREDICTIONS: False # Weather to save predictions
+  COUNT_TIME: False # Weather to count time during test
+
+model:
+  target: 'modules'
+
+LOSS:
+  
+METRIC:
+  None
+DATASET:
+  VOCASET:
+    NONE: none
+
+DEMO:
+  EAMPLE: null
+  ID: null
+  CHECKPOINTS: "templates"
+  TEMPLATE: "datasets/vocaset/templates.pkl"
+  PLY: "datasets/vocaset/templates/FLAME_sample.ply"
+  FPS: 30
+
+
+LOGGER:
+  SACE_CHECKPOINT_EPOCH: 1
+  LOG_EVERY_STEPS: 1
+  VAL_EVERY_STEPS: 10
+  TENSORBOARD: true
+  WANDB:
+    OFFLINE: false
+    PROJECT: null
+    RESUME_ID: null
