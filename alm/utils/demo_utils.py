@@ -323,9 +323,11 @@ def animate(vertices: np.array, wav_path: str, file_name: str, ply: str, fps: in
     imageio.mimsave(tmp_video_file.name, frames, fps = fps)
 
     cmd = " ".join(['ffmpeg', '-hide_banner -loglevel error', '-y', '-i', tmp_video_file.name, '-i', wav_path, '-c:v copy -c:a aac', '-pix_fmt yuv420p -qscale 0',file_name, ])
-    # cmd = " ".join(['ffmpeg', '-i', tmp_video_file.name, '-i', wav_path, '-c:v copy -c:a aac', '-pix_fmt yuv420p -qscale 0',file_name, ])
+    cmd = " ".join(['ffmpeg', '-i', tmp_video_file.name, '-i', wav_path, '-c:v copy -c:a aac', '-pix_fmt yuv420p -qscale 0',file_name, ])
     
     os.system(cmd)
     tmp_dir = tempfile.gettempdir() # check if the wav file is in the tmp dir
     if os.path.exists(wav_path) and tmp_dir in wav_path: 
         os.remove(wav_path)
+
+    print(f"Video saved to {file_name}")
