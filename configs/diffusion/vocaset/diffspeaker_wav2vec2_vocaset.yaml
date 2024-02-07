@@ -72,6 +72,7 @@ model:
   guidance_uncondp: 0. # not used
   period: 30
   no_cross: False
+  smooth_output: True
 
 
 # Logger configuration

@@ -72,7 +72,8 @@ model:
   guidance_uncondp: 0. # not used
   period: 25
   no_cross: False
-
+  smooth_output: False
+  
 # rewrite the template
 DEMO:
   EAMPLE: null

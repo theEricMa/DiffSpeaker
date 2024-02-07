@@ -87,6 +87,10 @@ class DIFFUSION_BIAS(BaseModel):
         assert self.guidance_scale >= 0.0 
         self.do_classifier_free_guidence = self.guidance_scale > 0.0
 
+        self.smooth_output = False
+        if hasattr(cfg.model, "smooth_output") and cfg.model.smooth_output:
+            self.smooth_output = True
+
 
     def allsplit_step(self, split: str, batch, batch_idx):
         """
@@ -466,6 +470,10 @@ class DIFFUSION_BIAS(BaseModel):
                 vertice_attention = batch['vertice_attention'],
                 silent_hidden_state = silent_hidden_state,
             ) + template # vertice_output.shape = [batch_size, vert_len, vert_dim]
+            
+            if self.smooth_output:
+                # # smooth the prediction does not significantly affect the metric but makes the animation smoother
+                vertice_output = self.smooth(vertice_output)
         else:
             raise ValueError(f"phase should be either 'train' or 'val', but got {phase}")
 
@@ -485,6 +493,7 @@ class DIFFUSION_BIAS(BaseModel):
         ).permute(0, 2, 1)  # smooth the prediction with a moving average filter
         vertices[:, 1:-1] = vertices_smooth[:, 1:-1]
         return vertices
+
 
     def predict(self, batch, **kwargs):
         """
@@ -525,9 +534,7 @@ class DIFFUSION_BIAS(BaseModel):
         batch['template'] = batch['template'][None, ...]
 
         # perform the diffusion forward process
-        vertice_output = self.smooth( # smooth the prediction does not significantly affect the metric but makes the animation smoother
-            self._diffusion_forward(batch, 0, 'val')['vertice_pred']
-         ) # vertice_output.shape = [batch_size, vert_len, vert_dim]                
+        vertice_output = self._diffusion_forward(batch, 0, 'val')['vertice_pred'] # vertice_output.shape = [batch_size, vert_len, vert_dim]                
         
         rs_set = {
             "vertice_pred": vertice_output,
