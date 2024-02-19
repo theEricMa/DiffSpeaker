@@ -149,20 +149,6 @@ class VOCASETDataModule(BASEDataModule):
                 if subject_id in self.subjects[sub] and sentence_id in splits[sub]:
                     self.data_splits[sub].append(v)
 
-        # split dataset
-        self.data_splits = {
-            'train':[],
-            'val':[],
-            'test':[],
-        }
-
-        for k, v in data.items():
-            subject_id = "_".join(k.split("_")[:-1])
-            sentence_id = int(k.split(".")[0][-2:])
-            for sub in ['train', 'val', 'test']:
-                if subject_id in self.subjects[sub] and sentence_id in splits[sub]:
-                    self.data_splits[sub].append(v)
-
         # self._sample_set = self.__getattr__("test_dataset")
 
 
