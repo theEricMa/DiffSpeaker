@@ -2,7 +2,7 @@
 ## [Paper](https://arxiv.org/pdf/2402.05712.pdf) | [Demo](https://www.youtube.com/watch?v=4-NBygHePk0)
 
 ## Update
-- [30/03/2024]: The evaluation code is updated, you can reproduce the metric reported in the paper. 
+- [30/03/2024]: The evaluation code is updated. 
 - [07/02/2024]: The inference script is released. 
 - [06/02/2024]: The model weight is released.
 
@@ -41,6 +41,12 @@ For the vocaset model, run the following script.
 ```
 sh scripts/demo/demo_vocaset.sh
 ```
+### Evaluation
+To obtain the metrics reported in the paper, use the scripts in `scripts/diffusion/biwi_evaluation` and `scripts/diffusion/vocaset_evaluation`. For example, to evaluate DiffSpeaker in BIWI dataset with the hubert backbone, use the following script.
+```
+scripts/diffusion/biwi_evaluation/diffspeaker_hubert_biwi.sh
+```
+
 ## Training
 ### Data Preparation 
 
