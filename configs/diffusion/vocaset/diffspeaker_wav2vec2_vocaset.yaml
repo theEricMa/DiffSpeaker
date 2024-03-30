@@ -26,7 +26,7 @@ DATASET:
   JOINT_TYPE: 'vocaset' # join type
 
 TEST:
-  CHECKPOINTS: checkpoints/biwi/diffspeaker_wav2vec2_vocaset.ckpt # Pretrained model path
+  CHECKPOINTS: checkpoints/vocaset/diffspeaker_wav2vec2_vocaset.ckpt # Pretrained model path
   DATASETS: ['vocaset'] # training datasets
   BATCH_SIZE: 1 # training Batch size
   SPLIT: test # split type
