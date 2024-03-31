@@ -44,7 +44,7 @@ sh scripts/demo/demo_vocaset.sh
 ### Evaluation
 To obtain the metrics reported in the paper, use the scripts in `scripts/diffusion/biwi_evaluation` and `scripts/diffusion/vocaset_evaluation`. For example, to evaluate DiffSpeaker in BIWI dataset with the hubert backbone, use the following script.
 ```
-scripts/diffusion/biwi_evaluation/diffspeaker_hubert_biwi.sh
+sh scripts/diffusion/biwi_evaluation/diffspeaker_hubert_biwi.sh
 ```
 
 ## Training
